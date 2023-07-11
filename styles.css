@@ -1,0 +1,213 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  position: relative;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  user-select: none;
+}
+
+
+body {
+  font: 400 1.8rem "Josefin Sans", sans-serif;
+  background: hsl(235, 21%, 11%);
+  padding-top: 8rem;
+  width: min(85%, 54rem);
+  margin: auto;
+}
+
+input,
+button {
+  font: inherit;
+  border: 0;
+  background: transparent;
+}
+
+button {
+  display: flex;
+  user-select: none;
+}
+
+input:focus,
+button:focus {
+  outline: 0;
+}
+
+label {
+  display: none;
+}
+
+.card {
+  background-color: hsl(235, 24%, 19%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.9rem 2rem;
+  gap: 2rem;
+}
+
+header.card {
+  background: transparent;
+  padding: 0;
+  align-items: flex-start;
+}
+
+header.card h1 {
+  color: hsl(0, 0%, 100%);
+  letter-spacing: 1.3rem;
+  font-weight: 700;
+  font-size: calc(1.6rem * 2);
+}
+
+.card .cb-container {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0.1rem solid hsl(233, 14%, 35%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.card .cb-container .cb-input {
+  transform: scale(1.8);
+  opacity: 0;
+}
+
+.card .cb-container .check {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.card .cb-container .cb-input:checked+.check {
+  background: url("../assets/images/icon-check.svg"),
+    linear-gradient(45deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.add {
+  margin: 4rem 0 2.5rem 0;
+  border-radius: 0.5rem;
+}
+
+.add .cb-container {
+  transition: background 0.3s ease;
+}
+
+.add .cb-container #add-btn {
+  color: hsl(234, 39%, 75%);
+  font-size: 2rem;
+  transition: color 0.3s ease;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.add .cb-container:hover {
+  background: hsl(220, 98%, 61%);
+}
+
+.add .cb-container:active {
+  transform: scale(0.95);
+}
+
+.add .cb-container:hover #add-btn {
+  color: hsl(0, 0%, 100%);
+}
+
+.add .txt-container {
+  flex: 1;
+}
+
+.add .txt-container .txt-input {
+  width: 100%;
+  padding: 0.7rem 0;
+  color: hsl(236, 33%, 92%);
+}
+
+body.light .add .txt-container .txt-input {
+  font-weight: 700;
+}
+
+.add .txt-container .txt-input::placeholder {
+  color: hsl(233, 14%, 35%);
+  font-weight: 400;
+}
+
+.todos>* {
+  transition: 0.4s ease;
+}
+
+
+.todos .card:first-child {
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.todos>*+* {
+  border-top: 0.2rem solid hsl(235, 19%, 24%);
+  ;
+}
+
+.item {
+  flex: 1;
+  color: hsl(234, 39%, 75%);
+}
+
+.item:hover {
+  color: hsl(236, 33%, 92%);
+}
+
+body.light .todos {
+  box-shadow: 0 0 2rem 0.4rem hsl(0, 0%, 0%, 0.1);
+}
+
+.todos .card.checked .item {
+  text-decoration: line-through;
+  color: hsl(234, 11%, 52%);
+  text-decoration-color: hsl(234, 11%, 52%);
+}
+
+.todos .card.fall {
+  pointer-events: none;
+  animation: fall 0.2s forwards ease;
+}
+
+@keyframes fall {
+  0% {
+    opacity: 0.5;
+    transform: translateX(20%);
+  }
+
+  50% {
+    transform: translateX(25%) rotateZ(40deg);
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: translateX(30%) rotateZ(90deg);
+    opacity: 0;
+  }
+}
