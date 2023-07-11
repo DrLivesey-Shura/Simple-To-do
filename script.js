@@ -1,4 +1,4 @@
-const itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+const items = JSON.parse(localStorage.getItem('items') || '[]');
 
 document.querySelector("#enter").addEventListener("click", () => {
   const item = document.querySelector("#item")
